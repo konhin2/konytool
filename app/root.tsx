@@ -8,10 +8,13 @@ import {
 	Scripts,
 	ScrollRestoration
 } from "@remix-run/react"
+import { Navbar } from "~/components/layout"
 import stylesheet from "~/tailwind.css"
+import Icon from "./../public/favicon.ico"
 
 export const links: LinksFunction = () => [
 	{ rel: "stylesheet", href: stylesheet },
+	{ rel: "icon", type: "image/png", href: Icon },
 	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : [])
 ]
 
@@ -28,6 +31,7 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
+				<Navbar />
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
