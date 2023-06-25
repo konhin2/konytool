@@ -3,8 +3,8 @@ import Icon from "~/../public/favicon.ico"
 import { INavCProps } from "~/types/layout"
 import { useLinkToggle } from "./useLinkToggle"
 
-export default function Navbar({ path }: INavCProps): JSX.Element {
-	const { activeLink, handleClickLink } = useLinkToggle(path)
+export default function Navbar({ initialPath }: INavCProps): JSX.Element {
+	const { activeLink, handleClickLink } = useLinkToggle(initialPath)
 	const getLinkClass = (path: string) =>
 		activeLink === path
 			? "border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"

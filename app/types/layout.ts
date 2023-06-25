@@ -1,5 +1,5 @@
 export interface INavCProps {
-	path: string
+	initialPath: string
 }
 export interface IPathParts {
 	requestUrl: string

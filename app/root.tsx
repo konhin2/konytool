@@ -20,12 +20,12 @@ export const links: LinksFunction = () => [
 	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : [])
 ]
 export async function loader({ request }: DataFunctionArgs) {
-	const path = await fetchPathParts({ requestUrl: request.url })
-	return { path }
+	const initialPath = await fetchPathParts({ requestUrl: request.url })
+	return { initialPath }
 }
 
 export default function App(): JSX.Element {
-	const { path } = useLoaderData<typeof loader>()
+	const { initialPath } = useLoaderData<typeof loader>()
 	return (
 		<html lang="en">
 			<head>
@@ -38,7 +38,7 @@ export default function App(): JSX.Element {
 				<Links />
 			</head>
 			<body>
-				<Navbar path={path} />
+				<Navbar initialPath={initialPath} />
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
