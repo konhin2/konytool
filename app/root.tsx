@@ -1,15 +1,17 @@
 import { cssBundleHref } from "@remix-run/css-bundle"
-import type { LinksFunction } from "@remix-run/node"
+import type { DataFunctionArgs, LinksFunction } from "@remix-run/node"
 import {
 	Links,
 	LiveReload,
 	Meta,
 	Outlet,
 	Scripts,
-	ScrollRestoration
+	ScrollRestoration,
+	useLoaderData
 } from "@remix-run/react"
 import { Navbar } from "~/components/layout"
 import stylesheet from "~/tailwind.css"
+import { fetchPathParts } from "~/utils/request.utils"
 import Icon from "./../public/favicon.ico"
 
 export const links: LinksFunction = () => [
@@ -17,8 +19,13 @@ export const links: LinksFunction = () => [
 	{ rel: "icon", type: "image/png", href: Icon },
 	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : [])
 ]
+export async function loader({ request }: DataFunctionArgs) {
+	const path = await fetchPathParts({ requestUrl: request.url })
+	return { path }
+}
 
-export default function App() {
+export default function App(): JSX.Element {
+	const { path } = useLoaderData<typeof loader>()
 	return (
 		<html lang="en">
 			<head>
@@ -31,7 +38,7 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
-				<Navbar />
+				<Navbar path={path} />
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
