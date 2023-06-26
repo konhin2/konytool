@@ -12,11 +12,11 @@ export default function UserSettings(): JSX.Element {
 	}
 	return (
 		<div className="hidden sm:ml-6 sm:flex sm:items-center" ref={ref}>
-			<div className="relative ml-3">
+			<div className="relative">
 				<div>
 					<button
 						type="button"
-						className="flex rounded-full bg-white text-sm  hover:ring-2 hover:ring-indigo-500 hover:ring-offset-2"
+						className="flex rounded-full bg-white text-sm  hover:ring-2 hover:ring-konytool-d hover:ring-offset-2"
 						id="user-menu-button"
 						aria-expanded="false"
 						aria-haspopup="true"

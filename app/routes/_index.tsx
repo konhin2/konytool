@@ -5,5 +5,7 @@ export const meta: V2_MetaFunction = () => {
 }
 
 export default function Index(): JSX.Element {
-	return <h1 className="text-3xl font-bold underline">Hello world!</h1>
+	return (
+		<h1 className="text-3xl font-bold underline">Welcome to Konytool!</h1>
+	)
 }
