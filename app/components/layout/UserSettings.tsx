@@ -1,15 +1,14 @@
 import { Link } from "@remix-run/react"
 import * as React from "react"
+import { useTranslation } from "react-i18next"
 import Icon from "~/../public/favicon.ico"
 import Conditional from "~/components/common/Conditional"
 import useClickOutside from "~/utils/clickOutside.utils"
 
 export default function UserSettings(): JSX.Element {
+	const { t } = useTranslation()
 	const [toggleActive, setToggleActive] = React.useState<boolean>(false)
 	const ref = useClickOutside(toggleActive, setToggleActive)
-	const handleUserActive = () => {
-		setToggleActive(!toggleActive)
-	}
 	return (
 		<div className="hidden sm:ml-6 sm:flex sm:items-center" ref={ref}>
 			<div className="relative">
@@ -20,7 +19,7 @@ export default function UserSettings(): JSX.Element {
 						id="user-menu-button"
 						aria-expanded="false"
 						aria-haspopup="true"
-						onClick={() => handleUserActive()}
+						onClick={() => setToggleActive(!toggleActive)}
 					>
 						<span className="sr-only">Open user menu</span>
 						<img
@@ -44,17 +43,19 @@ export default function UserSettings(): JSX.Element {
 							role="menuitem"
 							tabIndex={-1}
 							id="user-menu-item-0"
+							onClick={() => setToggleActive(false)}
 						>
-							Your Profile
+							{t("common.PROFILE_SET_TOGGLE")}
 						</Link>
 						<Link
-							to={"/profile/singout"}
+							to={"/"}
 							className="block px-4 py-2 text-sm text-gray-700"
 							role="menuitem"
 							tabIndex={-1}
 							id="user-menu-item-2"
+							onClick={() => setToggleActive(false)}
 						>
-							Sign out
+							{t("common.SIGNOUT_TOGGLE")}
 						</Link>
 					</div>
 				</Conditional>

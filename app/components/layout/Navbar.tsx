@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react"
+import { useTranslation } from "react-i18next"
 import Icon from "~/../public/favicon.ico"
 import { INavCProps } from "~/types/layout"
 import AuthLink from "./AuthLink"
@@ -6,6 +7,7 @@ import UserSettings from "./UserSettings"
 import { useLinkToggle } from "./useLinkToggle"
 
 export default function Navbar({ initialPath }: INavCProps): JSX.Element {
+	const { t } = useTranslation()
 	const { activeLink, handleClickLink } = useLinkToggle(initialPath)
 	const getLinkClass = (path: string) =>
 		activeLink === path
@@ -31,7 +33,7 @@ export default function Navbar({ initialPath }: INavCProps): JSX.Element {
 								)}`}
 								onClick={() => handleClickLink("/")}
 							>
-								Home
+								{t("common.HOME_LINK")}
 							</Link>
 							<Link
 								to={"/dashboard"}
@@ -40,14 +42,20 @@ export default function Navbar({ initialPath }: INavCProps): JSX.Element {
 								)}`}
 								onClick={() => handleClickLink("/dashboard")}
 							>
-								Dashboard
+								{t("common.DASHBOARD_LINK")}
 							</Link>
 						</div>
 					</div>
 					<div className="flex items-center justify-items-center">
 						<div className="grid gap-4 grid-cols-2">
-							<AuthLink path={"/login"} text={"Login"} />
-							<AuthLink path={"/signup"} text={"Signup"} />
+							<AuthLink
+								path={"/login"}
+								text={t("common.LOGIN_LINK")}
+							/>
+							<AuthLink
+								path={"/signup"}
+								text={t("common.SIGNUP_LINK")}
+							/>
 						</div>
 						<UserSettings />
 					</div>
