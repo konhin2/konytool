@@ -11,7 +11,7 @@ import {
 } from "@remix-run/react"
 import { Navbar } from "~/components/layout"
 import stylesheet from "~/tailwind.css"
-import { fetchPathParts } from "~/utils/request.utils"
+import { fetchPathParts } from "~/utils/requestGetPath.utils"
 import Icon from "./../public/favicon.ico"
 
 export const links: LinksFunction = () => [
