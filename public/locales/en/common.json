@@ -4,5 +4,8 @@
     "LOGIN_LINK": "Login",
     "SIGNUP_LINK": "Signup",
     "PROFILE_SET_TOGGLE": "Your Profile",
-    "SIGNOUT_TOGGLE": "Sign Out"
+    "SIGNOUT_TOGGLE": "Sign Out",
+    "NOT_FOUND": "Page not found",
+    "NOT_FOUND_MESSAGE": "Sorry, the page you are looking for does not exist.",
+    "NOT_FOUND_LINK": "Go to Home"
 }

@@ -1,18 +1,15 @@
-import { Link } from "@remix-run/react"
+import { NavLink } from "@remix-run/react"
 import { useTranslation } from "react-i18next"
+import { twMerge } from "tailwind-merge"
 import Icon from "~/../public/favicon.ico"
-import { INavCProps } from "~/types/layout"
 import AuthLink from "./AuthLink"
 import UserSettings from "./UserSettings"
-import { useLinkToggle } from "./useLinkToggle"
 
-export default function Navbar({ initialPath }: INavCProps): JSX.Element {
+export default function Navbar(): JSX.Element {
 	const { t } = useTranslation()
-	const { activeLink, handleClickLink } = useLinkToggle(initialPath)
-	const getLinkClass = (path: string) =>
-		activeLink === path
-			? "border-konytool px-1 pt-1 text-sm font-medium text-gray-900"
-			: "border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+	const unactive =
+		"inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500"
+	const active = "border-konytool text-gray-900"
 	return (
 		<nav className="bg-white shadow">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -26,24 +23,22 @@ export default function Navbar({ initialPath }: INavCProps): JSX.Element {
 							/>
 						</div>
 						<div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-							<Link
+							<NavLink
 								to={"/"}
-								className={`inline-flex items-center border-b-2 ${getLinkClass(
-									"/"
-								)}`}
-								onClick={() => handleClickLink("/")}
+								className={({ isActive }) =>
+									twMerge(unactive, isActive && active)
+								}
 							>
 								{t("common.HOME_LINK")}
-							</Link>
-							<Link
+							</NavLink>
+							<NavLink
 								to={"/dashboard"}
-								className={`inline-flex items-center border-b-2 ${getLinkClass(
-									"/dashboard"
-								)}`}
-								onClick={() => handleClickLink("/dashboard")}
+								className={({ isActive }) =>
+									twMerge(unactive, isActive && active)
+								}
 							>
 								{t("common.DASHBOARD_LINK")}
-							</Link>
+							</NavLink>
 						</div>
 					</div>
 					<div className="flex items-center justify-items-center">
