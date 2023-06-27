@@ -8,8 +8,8 @@ import UserSettings from "./UserSettings"
 export default function Navbar(): JSX.Element {
 	const { t } = useTranslation()
 	const unactive =
-		"inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500"
-	const active = "border-konytool text-gray-900"
+		"inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-70"
+	const active = "border-konytool text-gray-900 hover:border-konytool"
 	return (
 		<nav className="bg-white shadow">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
