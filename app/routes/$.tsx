@@ -1,6 +1,10 @@
-import { Link } from "@remix-run/react"
+import { Link, V2_MetaFunction } from "@remix-run/react"
 import { useTranslation } from "react-i18next"
 import NotFoungImg from "~/../public/images/not_found.jpg"
+
+export const meta: V2_MetaFunction = () => {
+	return [{ title: "404 Not Found" }]
+}
 
 export default function Not_Found(): JSX.Element {
 	const { t } = useTranslation()
