@@ -31,7 +31,7 @@ export default function Navbar(): JSX.Element {
 								{t("common.HOME_LINK")}
 							</NavLink>
 							<NavLink
-								to={"/dashboard/board"}
+								to={"/dashboard"}
 								className={({ isActive }) =>
 									twMerge(inactive, isActive && active)
 								}
