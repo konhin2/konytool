@@ -26,10 +26,6 @@ export default {
 			fuchsia: colors.fuchsia,
 			rose: colors.rose,
 			amber: colors.amber,
-			trueGray: colors.trueGray,
-			warmGray: colors.warmGray,
-			coolGray: colors.coolGray,
-			blueGray: colors.blueGray,
 			sky: colors.sky,
 			konytool: {
 				DEFAULT: "#1675F2",
