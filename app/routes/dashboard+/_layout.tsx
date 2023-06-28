@@ -5,7 +5,7 @@ import { Sidebar } from "~/components/dashboard"
 export const meta: V2_MetaFunction = () => {
 	return [{ title: "Dashboard" }]
 }
-export default function Dashboard(): JSX.Element {
+const Dashboard: React.FC = () => {
 	return (
 		<div>
 			<Sidebar />
@@ -13,3 +13,4 @@ export default function Dashboard(): JSX.Element {
 		</div>
 	)
 }
+export default Dashboard

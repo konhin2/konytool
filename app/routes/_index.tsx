@@ -4,8 +4,9 @@ export const meta: V2_MetaFunction = () => {
 	return [{ title: "Home" }]
 }
 
-export default function Index(): JSX.Element {
+const Index: React.FC = () => {
 	return (
 		<h1 className="text-3xl font-bold underline">Welcome to Konytool!</h1>
 	)
 }
+export default Index

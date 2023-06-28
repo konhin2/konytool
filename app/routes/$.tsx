@@ -6,7 +6,7 @@ export const meta: V2_MetaFunction = () => {
 	return [{ title: "404 Not Found" }]
 }
 
-export default function Notfound(): JSX.Element {
+const Notfound: React.FC = () => {
 	const { t } = useTranslation()
 	return (
 		<main className="isolate">
@@ -38,3 +38,4 @@ export default function Notfound(): JSX.Element {
 		</main>
 	)
 }
+export default Notfound

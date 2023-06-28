@@ -3,11 +3,7 @@ import { twMerge } from "tailwind-merge"
 import { SidebarLinkClass } from "~/components/dashboard/constants"
 import { INavLinkProps } from "~/types/dashboard"
 
-export default function NavLinkComp({
-	path,
-	text,
-	iconPath
-}: INavLinkProps): JSX.Element {
+const NavLinkComp: React.FC<INavLinkProps> = ({ path, text, iconPath }) => {
 	const { activeText, inactiveText } = SidebarLinkClass
 	return (
 		<li>
@@ -21,13 +17,13 @@ export default function NavLinkComp({
 					className="h-6 w-6 shrink-0"
 					fill="none"
 					viewBox="0 0 24 24"
-					stroke-width="1.5"
+					strokeWidth="1.5"
 					stroke="currentColor"
 					aria-hidden="true"
 				>
 					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
+						strokeLinecap="round"
+						strokeLinejoin="round"
 						d={iconPath}
 					/>
 				</svg>
@@ -36,3 +32,4 @@ export default function NavLinkComp({
 		</li>
 	)
 }
+export default NavLinkComp

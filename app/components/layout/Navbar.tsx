@@ -6,7 +6,7 @@ import AuthLink from "./AuthLink"
 import UserSettings from "./UserSettings"
 import { SidebarLinkClass } from "./constants"
 
-export default function Navbar(): JSX.Element {
+const Navbar: React.FC = () => {
 	const { t } = useTranslation()
 	const { active, inactive } = SidebarLinkClass
 	return (
@@ -58,3 +58,4 @@ export default function Navbar(): JSX.Element {
 		</nav>
 	)
 }
+export default Navbar

@@ -20,7 +20,7 @@ export const links: LinksFunction = () => [
 	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : [])
 ]
 
-export default function App(): JSX.Element {
+const App: React.FC = () => {
 	return (
 		<html lang="en">
 			<head>
@@ -44,3 +44,4 @@ export default function App(): JSX.Element {
 		</html>
 	)
 }
+export default App

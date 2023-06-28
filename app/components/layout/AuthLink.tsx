@@ -1,7 +1,7 @@
 import { Link } from "@remix-run/react"
 import { IAuthLinkProps } from "~/types/layout"
 
-export default function AuthLink({ path, text }: IAuthLinkProps): JSX.Element {
+const AuthLink: React.FC<IAuthLinkProps> = ({ path, text }) => {
 	return (
 		<Link
 			to={path}
@@ -11,3 +11,4 @@ export default function AuthLink({ path, text }: IAuthLinkProps): JSX.Element {
 		</Link>
 	)
 }
+export default AuthLink

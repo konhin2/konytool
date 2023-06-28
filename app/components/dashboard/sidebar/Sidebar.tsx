@@ -3,7 +3,7 @@ import logo from "~/../public/images/konytool-logo.png"
 import { SidebarLink } from "./../constants"
 import NavLinkComp from "./navlink-comp"
 
-export default function Sidebar(): JSX.Element {
+const Sidebar: React.FC = () => {
 	const { t } = useTranslation()
 	const sidebarLinks = SidebarLink.map((links) => {
 		return (
@@ -78,7 +78,7 @@ export default function Sidebar(): JSX.Element {
 								className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
 								fill="none"
 								viewBox="0 0 24 24"
-								stroke-width="1.5"
+								strokeWidth="1.5"
 								stroke="currentColor"
 								aria-hidden="true"
 							>
@@ -101,3 +101,4 @@ export default function Sidebar(): JSX.Element {
 		</div>
 	)
 }
+export default Sidebar

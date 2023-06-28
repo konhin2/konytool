@@ -5,7 +5,7 @@ import Icon from "~/../public/favicon.ico"
 import Conditional from "~/components/common/Conditional"
 import useClickOutside from "~/utils/clickOutside.utils"
 
-export default function UserSettings(): JSX.Element {
+const UserSettings = () => {
 	const { t } = useTranslation()
 	const [toggleActive, setToggleActive] = React.useState<boolean>(false)
 	const ref = useClickOutside(toggleActive, setToggleActive)
@@ -63,3 +63,4 @@ export default function UserSettings(): JSX.Element {
 		</div>
 	)
 }
+export default UserSettings
