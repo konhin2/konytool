@@ -4,12 +4,11 @@ import { twMerge } from "tailwind-merge"
 import Icon from "~/../public/favicon.ico"
 import AuthLink from "./AuthLink"
 import UserSettings from "./UserSettings"
+import { SidebarLinkClass } from "./constants"
 
 export default function Navbar(): JSX.Element {
 	const { t } = useTranslation()
-	const unactive =
-		"inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-70"
-	const active = "border-konytool text-gray-900 hover:border-konytool"
+	const { active, inactive } = SidebarLinkClass
 	return (
 		<nav className="bg-white shadow">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -26,15 +25,15 @@ export default function Navbar(): JSX.Element {
 							<NavLink
 								to={"/"}
 								className={({ isActive }) =>
-									twMerge(unactive, isActive && active)
+									twMerge(inactive, isActive && active)
 								}
 							>
 								{t("common.HOME_LINK")}
 							</NavLink>
 							<NavLink
-								to={"/dashboard"}
+								to={"/dashboard/board"}
 								className={({ isActive }) =>
-									twMerge(unactive, isActive && active)
+									twMerge(inactive, isActive && active)
 								}
 							>
 								{t("common.DASHBOARD_LINK")}

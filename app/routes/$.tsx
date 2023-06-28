@@ -6,7 +6,7 @@ export const meta: V2_MetaFunction = () => {
 	return [{ title: "404 Not Found" }]
 }
 
-export default function Not_Found(): JSX.Element {
+export default function Notfound(): JSX.Element {
 	const { t } = useTranslation()
 	return (
 		<main className="isolate">

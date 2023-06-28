@@ -4,5 +4,9 @@ export const meta: V2_MetaFunction = () => {
 	return [{ title: "Dashboard" }]
 }
 export default function Dashboard(): JSX.Element {
-	return <h1 className="text-3xl font-bold underline">Dashboard</h1>
+	return (
+		<main className="py-10">
+			<div className="mx-auto max-w-7xl px-4 px-6">Team</div>
+		</main>
+	)
 }
