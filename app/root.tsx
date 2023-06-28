@@ -1,5 +1,7 @@
+import { ClerkApp, ClerkCatchBoundary } from "@clerk/remix"
+import { rootAuthLoader } from "@clerk/remix/ssr.server"
 import { cssBundleHref } from "@remix-run/css-bundle"
-import type { LinksFunction } from "@remix-run/node"
+import type { LinksFunction, LoaderFunction } from "@remix-run/node"
 import {
 	Links,
 	LiveReload,
@@ -20,7 +22,9 @@ export const links: LinksFunction = () => [
 	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : [])
 ]
 
-const App: React.FC = () => {
+export const loader: LoaderFunction = (args) => rootAuthLoader(args)
+export const CatchBoundary = ClerkCatchBoundary()
+const App = () => {
 	return (
 		<html lang="en">
 			<head>
@@ -44,4 +48,4 @@ const App: React.FC = () => {
 		</html>
 	)
 }
-export default App
+export default ClerkApp(App)

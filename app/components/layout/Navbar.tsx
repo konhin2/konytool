@@ -1,9 +1,9 @@
+import { SignedIn, SignedOut, UserButton } from "@clerk/remix"
 import { NavLink } from "@remix-run/react"
 import { useTranslation } from "react-i18next"
 import { twMerge } from "tailwind-merge"
 import Icon from "~/../public/favicon.ico"
 import AuthLink from "./AuthLink"
-import UserSettings from "./UserSettings"
 import { SidebarLinkClass } from "./constants"
 
 const Navbar: React.FC = () => {
@@ -30,28 +30,34 @@ const Navbar: React.FC = () => {
 							>
 								{t("common.HOME_LINK")}
 							</NavLink>
-							<NavLink
-								to={"/dashboard"}
-								className={({ isActive }) =>
-									twMerge(inactive, isActive && active)
-								}
-							>
-								{t("common.DASHBOARD_LINK")}
-							</NavLink>
+							<SignedIn>
+								<NavLink
+									to={"/dashboard"}
+									className={({ isActive }) =>
+										twMerge(inactive, isActive && active)
+									}
+								>
+									{t("common.DASHBOARD_LINK")}
+								</NavLink>
+							</SignedIn>
 						</div>
 					</div>
 					<div className="flex items-center justify-items-center">
-						<div className="grid gap-4 grid-cols-2">
-							<AuthLink
-								path={"/login"}
-								text={t("common.LOGIN_LINK")}
-							/>
-							<AuthLink
-								path={"/signup"}
-								text={t("common.SIGNUP_LINK")}
-							/>
-						</div>
-						<UserSettings />
+						<SignedOut>
+							<div className="grid gap-4 grid-cols-2">
+								<AuthLink
+									path={"/login"}
+									text={t("common.LOGIN_LINK")}
+								/>
+								<AuthLink
+									path={"/signup"}
+									text={t("common.SIGNUP_LINK")}
+								/>
+							</div>
+						</SignedOut>
+						<SignedIn>
+							<UserButton />
+						</SignedIn>
 					</div>
 				</div>
 			</div>
