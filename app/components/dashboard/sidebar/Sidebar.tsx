@@ -16,7 +16,7 @@ const Sidebar: React.FC = () => {
 		)
 	})
 	return (
-		<div className="h-full fixed flex-col border-r border-t border-gray-200 bg-white px-4 pb-4 w-64">
+		<div className="border-r border-t border-gray-200 bg-white px-4 pb-4 w-64">
 			<div className="flex shrink-0 justify-center">
 				<img className="h-28" src={logo} alt="Konytool" />
 			</div>

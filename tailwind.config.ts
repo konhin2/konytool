@@ -35,7 +35,11 @@ export default {
 				ul: "#D5E7F2"
 			}
 		},
-		extend: {}
+		extend: {
+			height: {
+				100: "calc(100vh - 4rem)"
+			}
+		}
 	},
 	plugins: []
 } satisfies Config

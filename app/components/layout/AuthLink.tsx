@@ -5,7 +5,7 @@ const AuthLink: React.FC<IAuthLinkProps> = ({ path, text }) => {
 	return (
 		<Link
 			to={path}
-			className="rounded-lg text-center bg-konytool-m px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-konytool-d"
+			className="rounded-lg text-center bg-konytool px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-konytool-d"
 		>
 			{text}
 		</Link>
